@@ -2,18 +2,9 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 
-def spotify_playlist(playlist_name):
-    """
-    The songs list of my Spotify playlist
-    :param playlist_name:
-    :return songs_list:
-    """
-    # Spotify API credentials
-    CLIENT_ID = 'my_secret'
-    CLIENT_SECRET = 'my_id'
-
+def spotify_playlist(playlist_name, client_id, client_secret):
     # Initialize the Spotipy object
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=client_id, client_secret=client_secret))
 
     # Get the playlist with the given name
     playlists = sp.user_playlists('1137628596')
