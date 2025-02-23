@@ -3,14 +3,14 @@ import re
 import subprocess
 import sys
 
-import requests
-from pytube import YouTube, Playlist
+import httpx
+from pytube import Playlist, YouTube
 
 
 def get_youtube_url(song_name, artist_name):
     query = song_name + " " + artist_name + " official music video"
     search_url = "https://www.youtube.com/results?search_query=" + query
-    response = requests.get(search_url)
+    response = httpx.get(search_url)
     html_content = response.text
     video_url = re.findall(r'href=\"watch\?v=(.{11})', html_content)[0]
     return "https://www.youtube.com/watch?v=" + video_url
@@ -48,7 +48,7 @@ def download_playlist(playlist_url):
 
 def download_channel(channel_url):
     # Crea una petición GET a la API de YouTube
-    response = requests.get(f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_url}")
+    response = httpx.get(f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_url}")
 
     # Verifica si la respuesta es válida
     if response.status_code == 200:
@@ -88,7 +88,7 @@ if url:
 path = os.getcwd()
 
 # Carpeta donde se guardarán los archivos resultantes
-demucs_folder = "/Users/miguel/repos/Download_youtube_videos/demucs_separate"
+demucs_folder = ""
 
 # Lista de los nombres de los archivos mp3 en el path actual
 mp3_files = [f for f in os.listdir(path) if f.endswith('.mp3')]
