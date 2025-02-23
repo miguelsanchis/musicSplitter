@@ -37,7 +37,12 @@ def download_video(input_url):
         print(f"El video '{title}' ya ha sido descargado previamente.")
 
 
-def download_playlist(playlist_url):
+def download_playlist(playlist_url:str):
+    """Download all the videos from a YouTube playlist.
+
+    Args:
+        playlist_url (str): the playlist URL.
+    """
     # Crea un objeto de la clase Playlist
     playlist = Playlist(playlist_url)
 
