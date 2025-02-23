@@ -10,6 +10,6 @@ A Python-based tool that uses the **Demucs** library to extract individual stems
 ## 🔧 Installation  
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/yourusername/repo-name.git
-   cd repo-name
+   git clone https://github.com/miguelsanchis/musicSplitter.git
+   cd musicSplitter
 
