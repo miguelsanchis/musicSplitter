@@ -1,5 +1,5 @@
-import tkinter as tk
 import subprocess
+import tkinter as tk
 
 
 def split_song():
